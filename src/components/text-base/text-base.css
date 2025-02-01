@@ -1,16 +1,36 @@
-/* Aplica estilos ao conteúdo que for passado via slot */
+/* Estilos base para o componente */
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color, #fff);
+  color: var(--text-color, var(--text-color-default, #000));
+}
+
+/* Configuração dos temas via atributos no host */
+/* Tema Light */
+:host([theme="light"]) {
+  --background-color: #fff;
+  --text-color: #000;
+  --text-color-default: #000;
+  --text-color-inverse: #fff;
+}
+
+/* Tema Dark */
+:host([theme="dark"]) {
+  --background-color: #000;
+  --text-color: #fff;
+  --text-color-default: #fff;
+  /* Mesmo no dark mode, o estilo inverse permanecerá branco */
+  --text-color-inverse: #fff;
+}
+
+/* Aplica estilos ao conteúdo distribuído via slot */
 ::slotted(*) {
   font-size: inherit;
   color: inherit;
 }
 
-/* Estilos base para o componente */
-:host {
-  display: block;
-  font-family: Arial, sans-serif;
-}
-
-/* Estilos aplicados ao host baseado nas classes */
+/* Classes de tipografia */
 :host(.text-base) {
   line-height: normal;
 }
@@ -27,10 +47,13 @@
   font-size: 20px;
 }
 
+/* Classes de cores */
 :host(.color-default) {
-  color: #000;
+  /* Usa a cor padrão definida no tema */
+  color: var(--text-color-default, #000);
 }
 
 :host(.color-inverse) {
-  color: #fff;
+  /* Garante que o estilo inverse seja branco, conforme definido */
+  color: var(--text-color-inverse, #fff);
 }

@@ -1,29 +1,83 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html lang="pt">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
-
+    <meta charset="UTF-8" />
+    <title>Exemplo de Temas com StencilJS</title>
     <script type="module" src="/build/web-components-lib.esm.js"></script>
     <script nomodule src="/build/web-components-lib.js"></script>
+    <style>
+      /* Tema Light (padrão) */
+      body.light-theme {
+        --background-color: #fff;
+        --text-color: #000;
+        --text-color-default: #000;
+        --text-color-inverse: #fff;
+      }
+
+      /* Tema Dark */
+      body.dark-theme {
+        --background-color: #000;
+        --text-color: #fff;
+        --text-color-default: #fff;
+        --text-color-inverse: #fff;
+      }
+
+      /* Tema Custom: neste tema, o texto padrão é cinza */
+      body.custom-theme {
+        --background-color: #f5f5f5;  /* Fundo cinza claro */
+        --text-color: #888;           /* Texto geral cinza */
+        --text-color-default: #888;    /* Texto padrão cinza */
+        --text-color-inverse: #fff;    /* Texto inverso permanece branco */
+      }
+
+      /* Exemplo de estilização para um botão */
+      button {
+        background-color: var(--background-color);
+        color: var(--text-color-default);
+        border: 1px solid var(--text-color-default);
+        padding: 10px 20px;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+      }
+    </style>
   </head>
-  <body>
-    <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+  <!-- Inicia com o tema Light -->
+  <body class="light-theme">
+    <!-- Componentes Stencil que herdam as variáveis de tema definidas no body -->
+    <text-base size="md" color="default">
+      Texto padrão no tema light.
+    </text-base>
+    <text-base size="md" color="inverse">
+      Texto inverso no tema light.
+    </text-base>
     
-    <!-- Texto pequeno com cor padrão (preto) -->
-    <text-base size="sm" color="default">
-      Este é um texto pequeno com cor padrão.
-    </text-base>
+    <!-- Botões para alternar entre os temas -->
+    <div style="margin-top: 20px;">
+      <button onclick="setTheme('light')">Tema Light</button>
+      <button onclick="setTheme('dark')">Tema Dark</button>
+      <button onclick="setTheme('custom')">Tema Custom</button>
+    </div>
 
-    <!-- Texto médio com cor padrão (preto) -->
-    <text-base size="md">
-      Este é um texto médio com cor padrão.
-    </text-base>
-
-    <!-- Texto grande com variação inverse (branco) -->
-    <text-base size="lg" color="inverse">
-      Este é um texto grande com variação inverse.
-    </text-base>
+    <script>
+      function setTheme(theme) {
+        const body = document.body;
+        // Remove todas as classes de tema e adiciona a classe referente ao tema escolhido
+        body.classList.remove('light-theme', 'dark-theme', 'custom-theme');
+        switch (theme) {
+          case 'light':
+            body.classList.add('light-theme');
+            break;
+          case 'dark':
+            body.classList.add('dark-theme');
+            break;
+          case 'custom':
+            body.classList.add('custom-theme');
+            break;
+          default:
+            body.classList.add('light-theme');
+        }
+      }
+    </script>
   </body>
 </html>
