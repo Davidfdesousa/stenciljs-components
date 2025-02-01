@@ -1,0 +1,36 @@
+/* Aplica estilos ao conteúdo que for passado via slot */
+::slotted(*) {
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Estilos base para o componente */
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos aplicados ao host baseado nas classes */
+:host(.text-base) {
+  line-height: normal;
+}
+
+:host(.text-sm) {
+  font-size: 12px;
+}
+
+:host(.text-md) {
+  font-size: 16px;
+}
+
+:host(.text-lg) {
+  font-size: 20px;
+}
+
+:host(.color-default) {
+  color: #000;
+}
+
+:host(.color-inverse) {
+  color: #fff;
+}
