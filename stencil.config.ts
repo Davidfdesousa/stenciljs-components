@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'web-components-lib',
+  globalStyle: 'src/global/app.css',
   outputTargets: [
     {
       type: 'dist',
@@ -18,9 +19,12 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers
+      copy: [
+        { src: 'global', dest: 'global' } // Copia a pasta `src/global` para `www/global`
+      ],
     },
   ],
   testing: {
-    browserHeadless: "shell",
+    browserHeadless: 'shell',
   },
 };

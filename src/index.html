@@ -3,48 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>Exemplo de Temas com StencilJS</title>
+    <link rel="stylesheet" href="/global/app.css">
     <script type="module" src="/build/web-components-lib.esm.js"></script>
     <script nomodule src="/build/web-components-lib.js"></script>
-    <style>
-      /* Tema Light (padrão) */
-      body.light-theme {
-        --background-color: #fff;
-        --text-color: #000;
-        --text-color-default: #000;
-        --text-color-inverse: #fff;
-      }
-
-      /* Tema Dark */
-      body.dark-theme {
-        --background-color: #000;
-        --text-color: #fff;
-        --text-color-default: #fff;
-        --text-color-inverse: #fff;
-      }
-
-      /* Tema Custom: neste tema, o texto padrão é cinza */
-      body.custom-theme {
-        --background-color: #f5f5f5;  /* Fundo cinza claro */
-        --text-color: #888;           /* Texto geral cinza */
-        --text-color-default: #888;    /* Texto padrão cinza */
-        --text-color-inverse: #fff;    /* Texto inverso permanece branco */
-      }
-
-      /* Exemplo de estilização para um botão */
-      button {
-        background-color: var(--background-color);
-        color: var(--text-color-default);
-        border: 1px solid var(--text-color-default);
-        padding: 10px 20px;
-        margin-right: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s, color 0.3s;
-      }
-    </style>
   </head>
   <!-- Inicia com o tema Light -->
   <body class="light-theme">
-    <!-- Componentes Stencil que herdam as variáveis de tema definidas no body -->
+    <!-- Componentes Stencil que herdam as variáveis de tema definidas globalmente -->
     <text-base size="md" color="default">
       Texto padrão no tema light.
     </text-base>
@@ -58,11 +23,10 @@
       <button onclick="setTheme('dark')">Tema Dark</button>
       <button onclick="setTheme('custom')">Tema Custom</button>
     </div>
-
+    
     <script>
       function setTheme(theme) {
         const body = document.body;
-        // Remove todas as classes de tema e adiciona a classe referente ao tema escolhido
         body.classList.remove('light-theme', 'dark-theme', 'custom-theme');
         switch (theme) {
           case 'light':
