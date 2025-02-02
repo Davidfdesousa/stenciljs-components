@@ -1,0 +1,66 @@
+<!doctype html><html lang="pt"><head> <meta charset="UTF-8"> <title>Exemplo de Temas com StencilJS</title> <style>/* src/global/themes.css */
+
+
+
+/* Tema Light */
+body.light-theme {
+    --background-color: grey;
+    --text-color: rgb(138, 138, 255);
+    --border-color: rgb(138, 138, 255);
+    --text-color-default: rgb(138, 138, 255);
+    --text-color-inverse: #fff;
+  }
+  
+  /* Tema Dark */
+  body.dark-theme {
+    --background-color: #000;
+    --text-color: #fff;
+    --border-color: #fff;
+    --text-color-default: #fff;
+    --text-color-inverse: #fff;
+  }
+  
+  /* Tema Custom: texto padrão em cinza */
+  body.custom-theme {
+    --background-color: pink;
+    --text-color: purple; 
+    --border-color: purple;          
+    --text-color-default: purple;    /* Texto padrão cinza */
+    --text-color-inverse: #fff;    /* Texto inverso permanece branco */
+  }
+
+  body{
+    background-color: var(--background-color);
+    padding: 300px 50px;
+  }
+  
+  /* Exemplo de estilização para um botão */
+  button {
+    background-color: var(--background-color);
+    color: var(--text-color-default);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }</style> <link rel="modulepreload" href="/build/p-1bd7f655.js"><script type="module" data-stencil data-resources-url="/build/" data-stencil-namespace="web-components-lib">import{p as t,b as a}from"/build/p-1bd7f655.js";export{s as setNonce}from"/build/p-1bd7f655.js";import{g as e}from"/build/p-e1255160.js";var o=()=>{const s=import.meta.url;const a={};if(s!==""){a.resourcesUrl=new URL(".",s).href}return t(a)};o().then((async s=>{await e();return a([["p-3cdae23a",[[1,"my-component",{first:[1],middle:[1],last:[1]}]]],["p-7f548c5a",[[1,"text-base",{size:[1],color:[1]}]]]],s)}));
+//# sourceMappingURL=web-components-lib.esm.js.map
+</script> <script nomodule="" src="/build/web-components-lib.js" data-stencil></script> </head> <!-- Inicia com o tema Light --> <body class="light-theme"> <!-- Componentes Stencil que herdam as variáveis de tema definidas globalmente --> <text-base size="md" color="default"> Texto padrão no tema light. </text-base> <br> <text-base size="md" color="inverse"> Texto inverso no tema light. </text-base> <!-- Botões para alternar entre os temas --> <div style="margin-top: 20px;"> <button onclick="setTheme('light')">Tema Default</button> <button onclick="setTheme('dark')">Tema Dark</button> <button onclick="setTheme('custom')">Tema Custom</button> </div> <script>
+      function setTheme(theme) {
+        const body = document.body;
+        body.classList.remove('light-theme', 'dark-theme', 'custom-theme');
+        switch (theme) {
+          case 'light':
+            body.classList.add('light-theme');
+            break;
+          case 'dark':
+            body.classList.add('dark-theme');
+            break;
+          case 'custom':
+            body.classList.add('custom-theme');
+            break;
+          default:
+            body.classList.add('light-theme');
+        }
+      }
+    </script> </body></html>

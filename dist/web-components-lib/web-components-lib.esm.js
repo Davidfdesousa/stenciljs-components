@@ -1,0 +1,2 @@
+import{p as t,b as a}from"./p-1bd7f655.js";export{s as setNonce}from"./p-1bd7f655.js";import{g as e}from"./p-e1255160.js";var o=()=>{const s=import.meta.url;const a={};if(s!==""){a.resourcesUrl=new URL(".",s).href}return t(a)};o().then((async s=>{await e();return a([["p-3cdae23a",[[1,"my-component",{first:[1],middle:[1],last:[1]}]]],["p-7f548c5a",[[1,"text-base",{size:[1],color:[1]}]]]],s)}));
+//# sourceMappingURL=web-components-lib.esm.js.map
