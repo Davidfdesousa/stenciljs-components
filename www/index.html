@@ -1,4 +1,48 @@
-<!doctype html><html lang="pt"><head> <meta charset="UTF-8"> <title>Exemplo de Temas com StencilJS</title> <link rel="stylesheet" href="/globals/app.css"> <script type="module" src="/build/web-components-lib.esm.js" data-stencil></script> <script nomodule="" src="/build/web-components-lib.js" data-stencil></script> </head> <!-- Inicia com o tema Light --> <body class="light-theme"> <!-- Componentes Stencil que herdam as variáveis de tema definidas globalmente --> <text-base size="md" color="default"> Texto padrão no tema light. </text-base> <br> <text-base size="md" color="inverse"> Texto inverso no tema light. </text-base> <!-- Botões para alternar entre os temas --> <div style="margin-top: 20px;"> <button onclick="setTheme('light')">Tema Default</button> <button onclick="setTheme('dark')">Tema Dark</button> <button onclick="setTheme('custom')">Tema Custom</button> </div> <script>
+<!doctype html><html lang="pt"><head> <meta charset="UTF-8"> <title>Exemplo de Temas com StencilJS</title> <style>@charset "UTF-8";
+/* src/global/themes.css */
+/* Tema Light */
+body.light-theme {
+  --background-color: grey;
+  --text-color: rgb(138, 138, 255);
+  --border-color: rgb(138, 138, 255);
+  --text-color-default: rgb(138, 138, 255);
+  --text-color-inverse: #fff;
+}
+
+/* Tema Dark */
+body.dark-theme {
+  --background-color: #000;
+  --text-color: #fff;
+  --border-color: #fff;
+  --text-color-default: #fff;
+  --text-color-inverse: #fff;
+}
+
+/* Tema Custom: texto padrão em cinza */
+body.custom-theme {
+  --background-color: pink;
+  --text-color: purple;
+  --border-color: purple;
+  --text-color-default: purple; /* Texto padrão cinza */
+  --text-color-inverse: #fff; /* Texto inverso permanece branco */
+}
+
+body {
+  background-color: var(--background-color);
+  padding: 300px 50px;
+}
+
+/* Exemplo de estilização para um botão */
+button {
+  background-color: var(--background-color);
+  color: var(--text-color-default);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}</style> <link rel="modulepreload" href="/build/p-1bd7f655.js"><script type="module" data-stencil data-resources-url="/build/" data-stencil-namespace="web-components-lib">import{p as t,b as o}from"/build/p-1bd7f655.js";export{s as setNonce}from"/build/p-1bd7f655.js";import{g as e}from"/build/p-e1255160.js";(()=>{const s=import.meta.url,o={};return""!==s&&(o.resourcesUrl=new URL(".",s).href),t(o)})().then((async s=>(await e(),o([["p-74377051",[[1,"my-component",{first:[1],middle:[1],last:[1]}]]],["p-b4428bf0",[[1,"text-base",{size:[1],color:[1]}]]]],s))));
+</script> <script nomodule="" src="/build/web-components-lib.js" data-stencil></script> </head> <!-- Inicia com o tema Light --> <body class="light-theme"> <!-- Componentes Stencil que herdam as variáveis de tema definidas globalmente --> <text-base size="md" color="default"> Texto padrão no tema light. </text-base> <br> <text-base size="md" color="inverse"> Texto inverso no tema light. </text-base> <!-- Botões para alternar entre os temas --> <div style="margin-top: 20px;"> <button onclick="setTheme('light')">Tema Default</button> <button onclick="setTheme('dark')">Tema Dark</button> <button onclick="setTheme('custom')">Tema Custom</button> </div> <script>
       function setTheme(theme) {
         const body = document.body;
         body.classList.remove('light-theme', 'dark-theme', 'custom-theme');
@@ -16,13 +60,4 @@
             body.classList.add('light-theme');
         }
       }
-    </script> <script>
-if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  // auto-unregister service worker during dev mode
-  navigator.serviceWorker.getRegistration().then(function(registration) {
-    if (registration) {
-      registration.unregister().then(function() { location.reload(true) });
-    }
-  });
-}
-</script></body></html>
+    </script> </body></html>
