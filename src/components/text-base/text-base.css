@@ -2,14 +2,12 @@
 :host {
   display: block;
   font-family: Arial, sans-serif;
-  background-color: var(--background-color, #fff);
   color: var(--text-color, var(--text-color-default, #000));
 }
 
 /* Configuração dos temas via atributos no host */
 /* Tema Light */
 :host([theme="light"]) {
-  --background-color: #fff;
   --text-color: #000;
   --text-color-default: #000;
   --text-color-inverse: #fff;
@@ -17,7 +15,6 @@
 
 /* Tema Dark */
 :host([theme="dark"]) {
-  --background-color: #000;
   --text-color: #fff;
   --text-color-default: #fff;
   /* Mesmo no dark mode, o estilo inverse permanecerá branco */
