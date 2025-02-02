@@ -1,9 +1,20 @@
 import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'web-components-lib',
-  globalStyle: 'src/global/app.css',
+  globalStyle: 'www/globals/app.css', // Certifique-se de que o caminho está correto
+  plugins: [
+    sass({
+      injectGlobalPaths: ['src/globals/app.scss'], // Caminho SCSS original
+    }),
+  ],
   outputTargets: [
+    {
+      type: 'www',
+      serviceWorker: null,
+      copy: [{ src: 'globals', dest: 'globals' }], // Garante que a pasta "globals" seja mantida
+    },
     {
       type: 'dist',
       esmLoaderPath: '../loader',
@@ -16,15 +27,5 @@ export const config: Config = {
     {
       type: 'docs-readme',
     },
-    {
-      type: 'www',
-      serviceWorker: null, // disable service workers
-      copy: [
-        { src: 'global', dest: 'global' } // Copia a pasta `src/global` para `www/global`
-      ],
-    },
   ],
-  testing: {
-    browserHeadless: 'shell',
-  },
 };

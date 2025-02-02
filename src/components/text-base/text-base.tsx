@@ -2,7 +2,7 @@ import { Component, Prop, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'text-base',
-  styleUrl: 'text-base.css',
+  styleUrl: 'text-base.scss',
   shadow: true,
 })
 export class TextBase {
