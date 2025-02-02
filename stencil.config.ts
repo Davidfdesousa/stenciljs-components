@@ -18,7 +18,7 @@ export const config: Config = {
     },
     {
       type: 'dist',
-      esmLoaderPath: '../loader',
+      esmLoaderPath: './loader', // Gera a pasta loader dentro de dist
     },
     {
       type: 'dist-custom-elements',
