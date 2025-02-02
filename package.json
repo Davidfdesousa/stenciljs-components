@@ -10,17 +10,18 @@
   "unpkg": "dist/web-components-lib/web-components-lib.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/web-components-lib/web-components-lib.esm.js",
-      "require": "./dist/web-components-lib/web-components-lib.cjs.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
     },
     "./my-component": {
       "import": "./dist/components/my-component.js",
       "types": "./dist/components/my-component.d.ts"
     },
     "./loader": {
-      "import": "./loader/index.js",
-      "require": "./loader/index.cjs",
-      "types": "./loader/index.d.ts"
+      "import": "./dist/loader/index.js",
+      "require": "./dist/loader/index.cjs.js",
+      "types": "./dist/loader/index.d.ts"
     }
   },
   "repository": {
@@ -29,7 +30,7 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "dist/loader/"
   ],
   "scripts": {
     "build:css": "sass src/globals/app.scss www/globals/app.css --no-source-map",
