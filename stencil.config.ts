@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'web-components-lib',
+  sourceMap: false, // 🚀 Desativa source maps e evita erro no Vite
   globalStyle: 'www/globals/app.css', // Certifique-se de que o caminho está correto
   plugins: [
     sass({

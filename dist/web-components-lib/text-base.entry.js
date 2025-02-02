@@ -20,5 +20,3 @@ const TextBase = class {
 TextBase.style = textBaseCss;
 
 export { TextBase as text_base };
-
-//# sourceMappingURL=text-base.entry.js.map

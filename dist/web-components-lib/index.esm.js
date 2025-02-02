@@ -9,5 +9,3 @@ export { f as format } from './utils-11fcde98.js';
  * DO NOT use this file to export your components. Instead, use the recommended approaches
  * to consume components of this package as outlined in the `README.md`.
  */
-
-//# sourceMappingURL=index.esm.js.map

@@ -45,5 +45,3 @@ patchBrowser().then(async (options) => {
   await globalScripts();
   return bootstrapLazy([["my-component",[[1,"my-component",{"first":[1],"middle":[1],"last":[1]}]]],["text-base",[[1,"text-base",{"size":[1],"color":[1]}]]]], options);
 });
-
-//# sourceMappingURL=web-components-lib.esm.js.map

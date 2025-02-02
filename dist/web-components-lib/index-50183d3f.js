@@ -3529,5 +3529,3 @@ var insertChildVNodeAnnotations = (doc2, vnodeChild, cmpData, hostId, depth, ind
 };
 
 export { BUILD as B, H, NAMESPACE as N, Host as a, bootstrapLazy as b, consoleDevInfo as c, doc as d, h, promiseResolve as p, registerInstance as r, setNonce as s };
-
-//# sourceMappingURL=index-50183d3f.js.map

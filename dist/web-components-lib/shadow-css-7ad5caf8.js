@@ -330,5 +330,3 @@ var scopeCss = (cssText, scopeId) => {
 };
 
 export { scopeCss };
-
-//# sourceMappingURL=shadow-css-7ad5caf8.js.map
